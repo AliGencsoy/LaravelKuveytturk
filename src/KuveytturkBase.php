@@ -680,6 +680,10 @@ class KuveytturkBase {
 			$this->setCardHolderName('Ali Gençsoy');
 		}
 
+		if(is_null($this->cardHolderName)) {
+			dd('LaravelKuveytturk cardHolderName cannot be empty');
+		}
+
 		return $this->cardHolderName;
 	}
 
