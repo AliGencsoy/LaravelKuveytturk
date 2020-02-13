@@ -828,6 +828,10 @@ class KuveytturkBase {
 			$this->setAmount(10);
 		}
 
+		if(is_null($this->amount)) {
+			dd('LaravelKuveytturk amount cannot be null');
+		}
+
 		return $this->amount;
 	}
 
@@ -864,6 +868,10 @@ class KuveytturkBase {
 	 * @return integer
 	 */
 	public function getDisplayAmount() {
+		if(is_null($this->displayAmount)) {
+			dd('LaravelKuveytturk displayAmount cannot be null');
+		}
+
 		return $this->displayAmount;
 	}
 
@@ -931,6 +939,10 @@ class KuveytturkBase {
 	public function getMerchantOrderId() {
 		if($this->isDebug() && is_null($this->merchantOrderId)) {
 			$this->setMerchantOrderId('Sample_Order_ID_' . \Illuminate\Support\Str::random(6));
+		}
+
+		if(is_null($this->merchantOrderId)) {
+			dd('LaravelKuveytturk merchantOrderId cannot be null');
 		}
 
 		return $this->merchantOrderId;
