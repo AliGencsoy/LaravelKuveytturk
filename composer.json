@@ -1,0 +1,15 @@
+{
+    "name": "AliGencsoy/LaravelKuveytturk",
+    "description": "Laravel 5, 6 KuveytTürk Sanal Pos",
+    "homepage": "https://github.com/AliGencsoy/LaravelKuveytturk",
+    "autoload": {
+        "psr-4": {
+            "AliGencsoy\\LaravelKuveytturk\\": "src/"
+        }
+    },
+    "license": "Apache 2.0",
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": ">=5"
+    }
+}
