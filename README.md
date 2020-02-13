@@ -18,21 +18,19 @@ composer require AliGencsoy/LaravelKuveytturk
 ### 2. Adım
 ```php
 return [
-	// ...
+    // ...
 
-	'providers' => [
-		// ...
+    'providers' => [
+        // ...
+        AliGencsoy\LaravelKuveytturk\KuveytturkServiceProvider::class
+    ],
 
-		AliGencsoy\LaravelKuveytturk\KuveytturkServiceProvider::class
-	],
+    // ...
 
-	// ...
-
-	'aliases' => [
-		// ...
-
-		'Kuveytturk' => AliGencsoy\LaravelKuveytturk\Facades\Kuveytturk::class
-	],
+    'aliases' => [
+        // ...
+        'Kuveytturk' => AliGencsoy\LaravelKuveytturk\Facades\Kuveytturk::class
+    ],
 );
 ```
 
@@ -49,12 +47,12 @@ Route::get('/', function () {
 });
 
 Route::any('ok', function(Request $request) {
-	$kuveytturk = Kuveytturk::parseResponse($request);
-	if($kuveytturk->getError()) {
-		dd('something-gone-wrong', $kuveytturk);
-	}
+    $kuveytturk = Kuveytturk::parseResponse($request);
+    if($kuveytturk->getError()) {
+        dd('something-gone-wrong', $kuveytturk);
+    }
 
-	$kuveytturk->paymentConfirmation();
+    $kuveytturk->paymentConfirmation();
     if($kuveytturk->getError()) {
         dd('something-gone-wrong 2', $kuveytturk);
     }
@@ -63,8 +61,8 @@ Route::any('ok', function(Request $request) {
 });
 
 Route::any('fail', function(Request $request) {
-	// dd('fail', $request->all());
-	$kuveytturk = Kuveytturk::parseResponse($request->all());
+    // dd('fail', $request->all());
+    $kuveytturk = Kuveytturk::parseResponse($request->all());
     if($kuveytturk->getError()) {
         dd('something-gone-wrong', $kuveytturk);
     }
