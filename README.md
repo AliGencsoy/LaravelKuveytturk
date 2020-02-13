@@ -29,7 +29,7 @@ return [
 
     'aliases' => [
         // ...
-        'Kuveytturk' => AliGencsoy\LaravelKuveytturk\Facades\Kuveytturk::class
+        'Kuveytturk' => AliGencsoy\LaravelKuveytturk\KuveytturkFacade::class
     ],
 );
 ```
