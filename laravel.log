@@ -1,0 +1,158 @@
+https://boa.kuveytturk.com.tr/sanalposservice/Home/ThreeDModelPayGate
+
+<KuveytTurkVPosMessage xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+<APIVersion>1.0.0</APIVersion>
+<OkUrl>https://www.biletler.com/kuveytturk-test/ok</OkUrl>
+<FailUrl>https://www.biletler.com/kuveytturk-test/fail</FailUrl>
+<HashData>jxAyeF1d0i5h/b8vRnYy2LnUaF4=</HashData>
+<MerchantId>2874</MerchantId>
+<CustomerId>94782501</CustomerId>
+<UserName>obsidya</UserName>
+<CardNumber>4025918270107051</CardNumber>
+<CardExpireDateYear>29</CardExpireDateYear>
+<CardExpireDateMonth>04</CardExpireDateMonth>
+<CardCVV2>589</CardCVV2>
+<CardHolderName>Ali Gençsoy</CardHolderName>
+<CardType>MasterCard</CardType>
+<BatchID>0</BatchID>
+<TransactionType>Sale</TransactionType>
+<InstallmentCount>0</InstallmentCount>
+<Amount>1000</Amount>
+<DisplayAmount>1000</DisplayAmount>
+<CurrencyCode>0949</CurrencyCode>
+<MerchantOrderId>Siparisim-01</MerchantOrderId>
+<TransactionSecurity>3</TransactionSecurity>
+</KuveytTurkVPosMessage>
+
+<!DOCTYPE html>
+                <html xmlns="http://www.w3.org/1999/xhtml">
+                <head runat="server">
+                    <title></title>
+                </head>
+                <body onload="OnLoadEvent();">
+                    <form name="downloadForm"
+                        action="https://acs.bkm.com.tr/mdpayacs/pareq"
+                        method="POST">
+                        <input type="hidden"
+                            name="PaReq"
+                            value="eJxUUX9vgkAM/SrGD8AdJwiY2sRNk5GIMw7/2X8Mm4kR0AOG7tOvhz/XhFzfu/Lae4V4q4mmH5Q2
+mhAiqqrkm3rZZtxXUkmplC05Bq7vDpzA7yMsJys6IvyQrrKyQNuSlgJxg6yg021S1AhJenwJF hI
+5foBiCuEnHQ4RSld3wib8OwhiAsNRZITvoTzWTyfrXrxehV RiA6FtKyKWp9Ri/ghjcAjd7jtq4P
+1UiItm2tr2xP9Z60lZa5AGGuQTymWjYmq1julG0w2k3O0ZS/3azls41 184ijuR7/D0GYSpgk9SE
+Ny969nBkuyPpg h4SHIzBxqT IkXAAfTY/J888wAW62pSM8YOOzLHQGdDmVBXMHPu cgHhO/vhlX
+05qNsr2BCgLlOR4XXzkjkLElKpBOp2AACPOXuG6NjegWzNm/xf8BAAD//wXAgQAAAAAAkP9rAISw
+puI=">
+                        <input type="hidden"
+                            name="TermUrl" value="https://boa.kuveytturk.com.tr/sanalposservice/Home/ThreeDModelResponseGate">
+                        <input type="hidden"
+                            name="MD"
+                            value="KgxerY3WzJ6QVF8 YrQVw PD6T0qmKX4g/SWrICsCEUbBE3gdbTtBCa5HFxpjRuI">
+                        <!-- To support javascript unaware/disabled browsers -->
+                        <noscript>
+                    <center>Please click the submit button below.<br>
+                    <input type="submit" name="submit" value="Submit"></center>
+                  </noscript>
+                    </form>
+
+                    <script language="Javascript">                
+                    <!--
+                    function OnLoadEvent() {
+                        document.downloadForm.submit();
+                    }
+                    //-->
+                    </script>
+                </body>
+                </html>
+
+
+
+
+
+https://boa.kuveytturk.com.tr/sanalposservice/Home/ThreeDModelPayGate
+
+<KuveytTurkVPosMessage xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+<APIVersion>1.0.0</APIVersion>
+<OkUrl>https://www.biletler.com/kuveytturk-test/ok</OkUrl>
+<FailUrl>https://www.biletler.com/kuveytturk-test/fail</FailUrl>
+<HashData>jxAyeF1d0i5h/b8vRnYy2LnUaF4=</HashData>
+<MerchantId>2874</MerchantId>
+<CustomerId>94782501</CustomerId>
+<UserName>obsidya</UserName>
+<CardNumber>4025918270107051</CardNumber>
+<CardExpireDateYear>29</CardExpireDateYear>
+<CardExpireDateMonth>04</CardExpireDateMonth>
+<CardCVV2>589</CardCVV2>
+<CardHolderName>Ali Gençsoy</CardHolderName>
+<CardType>MasterCard</CardType>
+<BatchID>0</BatchID>
+<TransactionType>Sale</TransactionType>
+<InstallmentCount>0</InstallmentCount>
+<Amount>1000</Amount>
+<DisplayAmount>1000</DisplayAmount>
+<CurrencyCode>0949</CurrencyCode>
+<MerchantOrderId>Siparisim-01</MerchantOrderId>
+<TransactionSecurity>3</TransactionSecurity>
+</KuveytTurkVPosMessage>
+
+<!DOCTYPE html>
+                <html xmlns="http://www.w3.org/1999/xhtml">
+                <head runat="server">
+                    <title></title>
+                </head>
+                <body onload="OnLoadEvent();">
+                    <form name="downloadForm"
+                        action="https://acs.bkm.com.tr/mdpayacs/pareq"
+                        method="POST">
+                        <input type="hidden"
+                            name="PaReq"
+                            value="eJxUUdtugkAQ/RXjB7AXQF0zbqLVpCRijcWXvlGcVKyALlC0X99ZvHYSsnPODGdnz0C0NYjTd0xq
+gxpCLMv4CzvpZtSVXHIupeAUrj/wXU probleIVHDT9oyrTItXC4I4HdICmYZBvnlYY4OU6Chfa4
+9AcK2BVChiaYas79gRW20Rc9YBca8jhDPQnms2g W3Wi9Sr4CIG1LCRFnVfmrPuKLrwBqM1eb6vq
+UA4Za5rG Uz3WO3ROEmRMWC2DOwx1bK2WUlyp3Sjw934HE7p280aOpvwd 0topC/Rd8jYLYDNnGF
+ uZFR/SGwh8KDqzlIc7sHNqaRE 8ADjYO8bPlWcGyGqDeXLWyiNf7gjwdChypA563j0H9pj45dW6
+mlRklOi7UqmeK9zW2pazAilZIhX3WgULgNm/2HVrZES7YMr Lf4PAAD//wXAgQAAAAAAkP9rAISM
+puA=">
+                        <input type="hidden"
+                            name="TermUrl" value="https://boa.kuveytturk.com.tr/sanalposservice/Home/ThreeDModelResponseGate">
+                        <input type="hidden"
+                            name="MD"
+                            value="sJA3lNrLj7s1pV/pDMj5qEyd5ae3eID 4BM5UZVht5u/PjDXorodJIGN0xSnKJL0">
+                        <!-- To support javascript unaware/disabled browsers -->
+                        <noscript>
+                    <center>Please click the submit button below.<br>
+                    <input type="submit" name="submit" value="Submit"></center>
+                  </noscript>
+                    </form>
+
+                    <script language="Javascript">                
+                    <!--
+                    function OnLoadEvent() {
+                        document.downloadForm.submit();
+                    }
+                    //-->
+                    </script>
+                </body>
+                </html>
+
+https://boa.kuveytturk.com.tr/sanalposservice/Home/ThreeDModelProvisionGate 
+
+<KuveytTurkVPosMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<APIVersion>1.0.0</APIVersion>
+<HashData>3UyMhm1yQhv2Ya+mY9u4k0t91/s=</HashData>
+<MerchantId>2874</MerchantId>
+<CustomerId>94782501</CustomerId>
+<UserName>obsidya</UserName>
+<TransactionType>Sale</TransactionType>
+<InstallmentCount>0</InstallmentCount>
+<Amount>1000</Amount>
+<MerchantOrderId>Siparisim-01</MerchantOrderId>
+<TransactionSecurity>3</TransactionSecurity>
+<KuveytTurkVPosAdditionalData>
+<AdditionalData>
+<Key>MD</Key>
+<Data>sJA3lNrLj7s1pV/pDMj5qEyd5ae3eID+4BM5UZVht5u/PjDXorodJIGN0xSnKJL0</Data>
+</AdditionalData>
+</KuveytTurkVPosAdditionalData>
+</KuveytTurkVPosMessage>
+
+<?xml version="1.0" encoding="utf-8"?><VPosTransactionResponseContract xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><VPosMessage><OrderId>35853499</OrderId><OkUrl>https://www.biletler.com/kuveytturk-test/ok</OkUrl><FailUrl>https://www.biletler.com/kuveytturk-test/fail</FailUrl><MerchantId>2874</MerchantId><SubMerchantId>0</SubMerchantId><CustomerId>94782501</CustomerId><UserName>obsidya</UserName><HashPassword>POmY0fp7XHEVo7z6vINSSiEnynM=</HashPassword><CardNumber>4025********7051</CardNumber><BatchID>1</BatchID><InstallmentCount>0</InstallmentCount><Amount>1000</Amount><CancelAmount>0</CancelAmount><MerchantOrderId>Siparisim-01</MerchantOrderId><FECAmount>0</FECAmount><CurrencyCode>949</CurrencyCode><QeryId>0</QeryId><DebtId>0</DebtId><SurchargeAmount>0</SurchargeAmount><SGKDebtAmount>0</SGKDebtAmount><TransactionSecurity>3</TransactionSecurity><InstallmentMaturityCommisionFlag>0</InstallmentMaturityCommisionFlag><PaymentId xsi:nil="true" /><OrderPOSTransactionId xsi:nil="true" /><TranDate xsi:nil="true" /><TransactionUserId xsi:nil="true" /></VPosMessage><IsEnrolled>true</IsEnrolled><IsVirtual>false</IsVirtual><ProvisionNumber>      </ProvisionNumber><RRN>005219085305</RRN><Stan>085305</Stan><ResponseCode>51</ResponseCode><ResponseMessage>Bakiyesi-Kredi limiti Yetersiz</ResponseMessage><OrderId>35853499</OrderId><TransactionTime>2020-02-21T19:15:08.677</TransactionTime><MerchantOrderId>Siparisim-01</MerchantOrderId><HashData>UCqsD0WUKi3k0pxpZ8xAJ1nVXc8=</HashData><BusinessKey>202002210736934183840007029</BusinessKey></VPosTransactionResponseContract>  

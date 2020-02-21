@@ -7,7 +7,6 @@
  */
 
 namespace AliGencsoy\LaravelKuveytturk;
-use Illuminate\Support\Facades\Log;
 
 class Kuveytturk extends KuveytturkBase {
 	/**
@@ -175,9 +174,6 @@ EOT;
 	 * @return string
 	 */
 	public function request($xml, $url) {
-		Log::info($url);
-		Log::info(mb_ereg_replace("\t", '', $xml));
-
 		while(mb_strpos($xml, "\t") !== false) {
 			$xml = mb_ereg_replace("\t", '', $xml);
 		}
@@ -200,8 +196,6 @@ EOT;
 			echo 'Caught exception: ', $e->getMessage(), "\n";
 		}
 
-		Log::info(urldecode($data));
-
 		return $data;
 	}
 
@@ -223,5 +217,18 @@ EOT;
 		}
 
 		return $xml->__toString();
+	}
+
+	public function getUserIpAddr() {
+	    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+	        //ip from share internet
+	        $ip = $_SERVER['HTTP_CLIENT_IP'];
+	    }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+	        //ip pass from proxy
+	        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	    }else{
+	        $ip = $_SERVER['REMOTE_ADDR'];
+	    }
+	    return $ip;
 	}
 }
