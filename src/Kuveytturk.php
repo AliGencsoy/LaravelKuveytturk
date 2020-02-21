@@ -38,7 +38,7 @@ class Kuveytturk extends KuveytturkBase {
 				<MerchantOrderId>{$this->getMerchantOrderId()}</MerchantOrderId>
 				<TransactionSecurity>{$this->getTransactionSecurity()}</TransactionSecurity>
 			</KuveytTurkVPosMessage>
-		EOT;
+EOT;
 
 		$result = $this->request($xml, $this->getSecurePaymentUrl());
 		if(trim($result) === 'TechnicalException') {
@@ -78,7 +78,7 @@ class Kuveytturk extends KuveytturkBase {
 					</AdditionalData>
 				</KuveytTurkVPosAdditionalData>
 			</KuveytTurkVPosMessage>
-		EOT;
+EOT;
 
 		$result = $this->request($xml, $this->getPaymentConfirmationUrl());
 		$this->parseResponse($result);
