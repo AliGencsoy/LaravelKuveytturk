@@ -7,6 +7,7 @@
  */
 
 namespace AliGencsoy\LaravelKuveytturk;
+use Illuminate\Support\Facades\Log;
 
 class Kuveytturk extends KuveytturkBase {
 	/**
@@ -30,6 +31,7 @@ class Kuveytturk extends KuveytturkBase {
 				<CardCVV2>{$this->getCardCvv2()}</CardCVV2>
 				<CardHolderName>{$this->getCardHolderName()}</CardHolderName>
 				<CardType>{$this->getCardType()}</CardType>
+				<BatchID>{$this->getBatchId()}</BatchID>
 				<TransactionType>{$this->getTransactionType()}</TransactionType>
 				<InstallmentCount>{$this->getInstallmentCount()}</InstallmentCount>
 				<Amount>{$this->getAmount()}</Amount>
@@ -173,6 +175,9 @@ EOT;
 	 * @return string
 	 */
 	public function request($xml, $url) {
+		Log::info($url);
+		Log::info(mb_ereg_replace("\t", '', $xml));
+
 		while(mb_strpos($xml, "\t") !== false) {
 			$xml = mb_ereg_replace("\t", '', $xml);
 		}
@@ -194,6 +199,8 @@ EOT;
 		} catch (\Exception $e) {
 			echo 'Caught exception: ', $e->getMessage(), "\n";
 		}
+
+		Log::info(urldecode($data));
 
 		return $data;
 	}
