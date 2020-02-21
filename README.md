@@ -7,6 +7,7 @@ Laravel 5, 6 KuveytTürk Sanal Pos
 - Documentation
 - Readme.md usage documentation
 - Set status => securePayment, securePaymentResponse, paymentConfirmation and paymentConfirmationResponse
+- Empty xml causes "Request rejected error"
 
 ## Yükleme
 
