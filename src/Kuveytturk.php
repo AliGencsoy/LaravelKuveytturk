@@ -111,39 +111,43 @@ EOT;
 			dd('LaravelKuveytturk not a virtual pos response');
 		}
 
-		$response = $response['AuthenticationResponse'];
-		$response = urldecode($response);
-		$response = simplexml_load_string($response);
+		$xml = $response['AuthenticationResponse'];
+		$xml = urldecode($xml);
+		$xml = simplexml_load_string($xml);
+		$xml = json_decode(json_encode($xml));
+
+		dd('xml', $xml);
 
 		$this->setRaw(urldecode($responseRaw['AuthenticationResponse']));
-		$this->setXml($response);
+		$this->setXml(simplexml_load_string($responseRaw['AuthenticationResponse']));
 
-		if($this->xmlGetter($response, 'ResponseCode') === '00') {
+		if($xml->ResponseCode === '00') {
 			$this->setError(false);
-			$this->setMd($this->xmlGetter($response, 'MD'));
-			$this->setHashData($this->xmlGetter($response, 'HashData'));
-			$this->setBatchId($this->xmlGetter($response, 'VPosMessage', 'BatchID'));
-			$this->setInstallmentCount($this->xmlGetter($response, 'VPosMessage', 'InstallmentCount'));
-			$this->setAmount(intval($this->xmlGetter($response, 'VPosMessage', 'Amount')) / 100);
-			$this->setCancelAmount(intval($this->xmlGetter($response, 'VPosMessage', 'CancelAmount')) / 100);
-			$this->setProvisionNumber($this->xmlGetter($response, 'ProvisionNumber'));
-			$this->setRrn($this->xmlGetter($response, 'RRN'));
-			$this->setStan($this->xmlGetter($response, 'Stan'));
+			$this->setMd($xml->MD);
+			$this->setHashData($xml->HashData);
+			$this->setBatchId($xml->VPosMessage->BatchID);
+			$this->setInstallmentCount($xml->VPosMessage->InstallmentCount);
+			$this->setAmount(intval($xml->VPosMessage->Amount) / 100);
+			$this->setCancelAmount(intval($xml->VPosMessage->CancelAmount) / 100);
+			$this->setProvisionNumber($xml->ProvisionNumber);
+			$this->setRrn($xml->RRN);
+			$this->setStan($xml->Stan);
 		} else {
 			$this->setError(true);
 		}
 
-		$this->setResponseCode($this->xmlGetter($response, 'ResponseCode'));
-		$this->setResponseMessage($this->xmlGetter($response, 'ResponseMessage'));
-		$this->setMerchantOrderId($this->xmlGetter($response, 'MerchantOrderId'));
-		$this->setReferenceId($this->xmlGetter($response, 'ReferenceId'));
-		$this->setBusinessKey($this->xmlGetter($response, 'BusinessKey'));
+		$this->setResponseCode($xml->ResponseCode);
+		$this->setResponseMessage($xml->ResponseMessage);
+		$this->setMerchantOrderId($xml->MerchantOrderId);
+		$this->setReferenceId($xml->ReferenceId);
+		$this->setBusinessKey($xml->BusinessKey);
 
 		return $this;
 	}
 
 	/**
 	 * hashData is helper
+	 *
 	 * @return string
 	 */
 	public function hashData() {
@@ -197,25 +201,5 @@ EOT;
 		}
 
 		return $data;
-	}
-
-	public function xmlGetter() {
-		if(func_num_args() < 2) {
-			dd('LaravelKuveytturk xmlGetter needs least two arguments');
-		}
-
-		$xml = func_get_arg(0);
-		$parts = func_get_args();
-		array_shift($parts);
-
-		foreach($parts as $part) {
-			try {
-				$xml = $xml->$part;
-			} catch(\Exception $e) {
-				return '';
-			}
-		}
-
-		return $xml->__toString();
 	}
 }

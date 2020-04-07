@@ -195,6 +195,11 @@ class KuveytturkBase {
 	protected $stan;
 
 	/**
+	 * @var mixed
+	 */
+	protected $orderId;
+
+	/**
 	 * @param mixed $debug
 	 *
 	 * @return self
@@ -1249,5 +1254,23 @@ class KuveytturkBase {
 	 */
 	public function getStan() {
 		return $this->stan;
+	}
+
+	/**
+	 * @param mixed $orderId
+	 *
+	 * @return self
+	 */
+	public function setOrderId($orderId) {
+		$this->$orderId = $this->$orderId;
+
+		return $this;
+	}
+
+	/**
+	 * @return self
+	 */
+	public function getOrderId() {
+		return $this->$orderId;
 	}
 }
