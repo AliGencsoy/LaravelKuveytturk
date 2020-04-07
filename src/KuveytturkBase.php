@@ -1262,7 +1262,7 @@ class KuveytturkBase {
 	 * @return self
 	 */
 	public function setOrderId($orderId) {
-		$this->$orderId = $this->$orderId;
+		$this->orderId = $this->$orderId;
 
 		return $this;
 	}
