@@ -131,6 +131,7 @@ EOT;
 			$this->setCancelAmount(intval($xml->VPosMessage->CancelAmount) / 100);
 			$this->setProvisionNumber($xml->ProvisionNumber);
 			$this->setRrn($xml->RRN);
+			$this->setOrderId($xml->OrderId);
 			$this->setStan($xml->Stan);
 		} else {
 			$this->setError(true);
