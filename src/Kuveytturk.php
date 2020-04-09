@@ -119,18 +119,18 @@ EOT;
 		$this->setRaw($decoded);
 		$this->setXml($xmlSimple);
 
-		$MD = $this->getter($xml, 'MD');
-		$HashData = $this->getter($xml, 'HashData');
-		$BatchID = $this->getter($xml, 'VPosMessage', 'BatchID');
-		$InstallmentCount = $this->getter($xml, 'VPosMessage', 'InstallmentCount');
-		$Amount = $this->getter($xml, 'VPosMessage', 'Amount');
-		$CancelAmount = $this->getter($xml, 'VPosMessage', 'CancelAmount');
-		$ProvisionNumber = $this->getter($xml, 'ProvisionNumber');
-		$RRN = $this->getter($xml, 'RRN');
-		$OrderId = $this->getter($xml, 'OrderId');
-		$Stan = $this->getter($xml, 'Stan');
-
 		if($xml->ResponseCode === '00') {
+			$MD = $this->getter($xml, 'MD');
+			$HashData = $this->getter($xml, 'HashData');
+			$BatchID = $this->getter($xml, 'VPosMessage', 'BatchID');
+			$InstallmentCount = $this->getter($xml, 'VPosMessage', 'InstallmentCount');
+			$Amount = $this->getter($xml, 'VPosMessage', 'Amount');
+			$CancelAmount = $this->getter($xml, 'VPosMessage', 'CancelAmount');
+			$ProvisionNumber = $this->getter($xml, 'ProvisionNumber');
+			$RRN = $this->getter($xml, 'RRN');
+			$OrderId = $this->getter($xml, 'OrderId');
+			$Stan = $this->getter($xml, 'Stan');
+
 			$this->setError(false);
 			$this->setMd($MD);
 			$this->setHashData($HashData);
@@ -147,10 +147,10 @@ EOT;
 		}
 
 		$this->setResponseCode($xml->ResponseCode);
-		$this->setResponseMessage($xml->ResponseMessage);
-		$this->setMerchantOrderId($xml->MerchantOrderId);
-		$this->setReferenceId($xml->ReferenceId);
-		$this->setBusinessKey($xml->BusinessKey);
+		$this->setResponseMessage(getter($xml, 'ResponseMessage'));
+		$this->setMerchantOrderId(getter($xml, 'MerchantOrderId'));
+		$this->setReferenceId(getter($xml, 'ReferenceId'));
+		$this->setBusinessKey(getter($xml, 'BusinessKey'));
 
 		return $this;
 	}
