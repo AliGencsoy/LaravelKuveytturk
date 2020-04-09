@@ -111,13 +111,13 @@ EOT;
 			dd('LaravelKuveytturk not a virtual pos response');
 		}
 
-		$xml = $response['AuthenticationResponse'];
-		$xml = urldecode($xml);
-		$xml = simplexml_load_string($xml);
-		$xml = json_decode(json_encode($xml));
+		$encoded = $response['AuthenticationResponse'];
+		$decoded = urldecode($encoded);
+		$xmlSimple = simplexml_load_string($decoded);
+		$xml = json_decode(json_encode($xmlSimple));
 
-		$this->setRaw(urldecode($responseRaw['AuthenticationResponse']));
-		$this->setXml(simplexml_load_string($responseRaw['AuthenticationResponse']));
+		$this->setRaw($decoded);
+		$this->setXml($xmlSimple);
 
 		if($xml->ResponseCode === '00') {
 			$this->setError(false);
