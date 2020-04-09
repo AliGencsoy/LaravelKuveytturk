@@ -119,18 +119,29 @@ EOT;
 		$this->setRaw($decoded);
 		$this->setXml($xmlSimple);
 
+		$MD = $this->getter($xml, 'MD');
+		$HashData = $this->getter($xml, 'HashData');
+		$BatchID = $this->getter($xml, 'VPosMessage', 'BatchID');
+		$InstallmentCount = $this->getter($xml, 'VPosMessage', 'InstallmentCount');
+		$Amount = $this->getter($xml, 'VPosMessage', 'Amount');
+		$CancelAmount = $this->getter($xml, 'VPosMessage', 'CancelAmount');
+		$ProvisionNumber = $this->getter($xml, 'ProvisionNumber');
+		$RRN = $this->getter($xml, 'RRN');
+		$OrderId = $this->getter($xml, 'OrderId');
+		$Stan = $this->getter($xml, 'Stan');
+
 		if($xml->ResponseCode === '00') {
 			$this->setError(false);
-			$this->setMd($xml->MD);
-			$this->setHashData($xml->HashData);
-			$this->setBatchId($xml->VPosMessage->BatchID);
-			$this->setInstallmentCount($xml->VPosMessage->InstallmentCount);
-			$this->setAmount(intval($xml->VPosMessage->Amount) / 100);
-			$this->setCancelAmount(intval($xml->VPosMessage->CancelAmount) / 100);
-			$this->setProvisionNumber($xml->ProvisionNumber);
-			$this->setRrn($xml->RRN);
-			$this->setOrderId($xml->OrderId);
-			$this->setStan($xml->Stan);
+			$this->setMd($MD);
+			$this->setHashData($HashData);
+			$this->setBatchId($BatchID);
+			$this->setInstallmentCount($InstallmentCount);
+			$this->setAmount(intval($Amount) / 100);
+			$this->setCancelAmount(intval($CancelAmount) / 100);
+			$this->setProvisionNumber($ProvisionNumber);
+			$this->setRrn($RRN);
+			$this->setOrderId($OrderId);
+			$this->setStan($Stan);
 		} else {
 			$this->setError(true);
 		}
@@ -200,5 +211,26 @@ EOT;
 		}
 
 		return $data;
+	}
+
+	public function getter() {
+		if(func_num_args() < 2) {
+			dd('Kuveytturk::getter function requires two or more arguments');
+		}
+
+		$obj = func_get_arg(0);
+		$pieces = func_get_args();
+		array_shift($pieces);
+
+		$temp = $obj;
+		foreach($pieces as $piece) {
+			try {
+				$temp = $temp->$piece;
+			} catch(\Exception $e) {
+				return null;
+			}
+		}
+
+		return $temp;
 	}
 }
