@@ -147,10 +147,10 @@ EOT;
 		}
 
 		$this->setResponseCode($xml->ResponseCode);
-		$this->setResponseMessage(getter($xml, 'ResponseMessage'));
-		$this->setMerchantOrderId(getter($xml, 'MerchantOrderId'));
-		$this->setReferenceId(getter($xml, 'ReferenceId'));
-		$this->setBusinessKey(getter($xml, 'BusinessKey'));
+		$this->setResponseMessage($this->getter($xml, 'ResponseMessage'));
+		$this->setMerchantOrderId($this->getter($xml, 'MerchantOrderId'));
+		$this->setReferenceId($this->getter($xml, 'ReferenceId'));
+		$this->setBusinessKey($this->getter($xml, 'BusinessKey'));
 
 		return $this;
 	}
