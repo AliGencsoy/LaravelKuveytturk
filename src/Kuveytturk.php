@@ -116,8 +116,6 @@ EOT;
 		$xml = simplexml_load_string($xml);
 		$xml = json_decode(json_encode($xml));
 
-		dd('xml', $xml);
-
 		$this->setRaw(urldecode($responseRaw['AuthenticationResponse']));
 		$this->setXml(simplexml_load_string($responseRaw['AuthenticationResponse']));
 
