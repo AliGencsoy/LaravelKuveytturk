@@ -283,8 +283,8 @@ class KuveytturkBase {
 	public function setOkUrl($okUrl) {
 		if(!is_null($okUrl)) {
 			if(filter_var($okUrl, FILTER_VALIDATE_URL) === false) {
-				// throw new Exception('LaravelKuveytturk invalid okUrl');
-				dd('LaravelKuveytturk invalid okUrl');
+				throw new Exception('LaravelKuveytturk invalid okUrl');
+				//dd('LaravelKuveytturk invalid okUrl');
 			}
 		} else {
 			$okUrl = '';
@@ -303,8 +303,8 @@ class KuveytturkBase {
 			$data = env('KUVEYTTURK_OK_URL', false);
 
 			if($data === false) {
-				// throw new Exception('LaravelKuveytturk okUrl doesn\'t set');
-				dd('LaravelKuveytturk okUrl doesn\'t set');
+				throw new Exception('LaravelKuveytturk okUrl doesn\'t set');
+				//dd('LaravelKuveytturk okUrl doesn\'t set');
 			}
 
 			$this->setOkUrl($data);
@@ -321,8 +321,8 @@ class KuveytturkBase {
 	public function setFailUrl($failUrl) {
 		if(!is_null($failUrl)) {
 			if(filter_var($failUrl, FILTER_VALIDATE_URL) === false) {
-				// throw new Exception('LaravelKuveytturk invalid failUrl');
-				dd('LaravelKuveytturk invalid failUrl');
+				throw new Exception('LaravelKuveytturk invalid failUrl');
+				//dd('LaravelKuveytturk invalid failUrl');
 			}
 		} else {
 			$failUrl = '';
@@ -341,8 +341,8 @@ class KuveytturkBase {
 			$data = env('KUVEYTTURK_FAIL_URL', false);
 
 			if($data === false) {
-				// throw new Exception('LaravelKuveytturk failUrl doesn\'t set');
-				dd('LaravelKuveytturk failUrl doesn\'t set');
+				throw new Exception('LaravelKuveytturk failUrl doesn\'t set');
+				// dd('LaravelKuveytturk failUrl doesn\'t set');
 			}
 
 			$this->setFailUrl($data);
@@ -375,8 +375,8 @@ class KuveytturkBase {
 				$data = env('KUVEYTTURK_MERCHANT_ID', false);
 
 				if($data === false) {
-					// throw new Exception('LaravelKuveytturk merchantId doesn\'t set');
-					dd('LaravelKuveytturk merchantId doesn\'t set');
+					throw new Exception('LaravelKuveytturk merchantId doesn\'t set');
+					// dd('LaravelKuveytturk merchantId doesn\'t set');
 				}
 			}
 
@@ -410,8 +410,8 @@ class KuveytturkBase {
 				$data = env('KUVEYTTURK_CUSTOMER_ID', false);
 
 				if($data === false) {
-					// throw new Exception('LaravelKuveytturk customerId doesn\'t set');
-					dd('LaravelKuveytturk customerId doesn\'t set');
+					throw new Exception('LaravelKuveytturk customerId doesn\'t set');
+					// dd('LaravelKuveytturk customerId doesn\'t set');
 				}
 			}
 
@@ -443,8 +443,8 @@ class KuveytturkBase {
 				$data = env('KUVEYTTURK_USERNAME', false);
 
 				if($data === false) {
-					// throw new Exception('LaravelKuveytturk username doesn\'t set');
-					dd('LaravelKuveytturk username doesn\'t set');
+					throw new Exception('LaravelKuveytturk username doesn\'t set');
+					// dd('LaravelKuveytturk username doesn\'t set');
 				}
 			}
 
@@ -478,8 +478,8 @@ class KuveytturkBase {
 				$data = env('KUVEYTTURK_PASSWORD', false);
 
 				if($data === false) {
-					// throw new Exception('LaravelKuveytturk password doesn\'t set');
-					dd('LaravelKuveytturk password doesn\'t set');
+					throw new Exception('LaravelKuveytturk password doesn\'t set');
+					// dd('LaravelKuveytturk password doesn\'t set');
 				}
 			}
 
@@ -500,7 +500,8 @@ class KuveytturkBase {
 			$cardNumber = mb_ereg_replace(' ', '', $cardNumber . '');
 		}
 		if(mb_strlen($cardNumber) !== 16) {
-			dd('LaravelKuveytturk invalid cardNumber length');
+			throw new Exception('LaravelKuveytturk invalid cardNumber length');
+			//dd('LaravelKuveytturk invalid cardNumber length');
 		}
 
 		$this->cardNumber = $cardNumber;
@@ -516,8 +517,8 @@ class KuveytturkBase {
 			if($this->isDebug() === true) {
 				$data = '4033 6025 6202 0327';
 			} else {
-				// throw new Exception('LaravelKuveytturk cardNumber doesn\'t set');
-				dd('LaravelKuveytturk cardNumber doesn\'t set');
+				throw new Exception('LaravelKuveytturk cardNumber doesn\'t set');
+				// dd('LaravelKuveytturk cardNumber doesn\'t set');
 			}
 
 			$this->setCardNumber($data);
@@ -535,8 +536,8 @@ class KuveytturkBase {
 		$cardExpireDateYear = intval($cardExpireDateYear);
 
 		if($cardExpireDateYear < 1) {
-			// throw new Exception('LaravelKuveytturk invalid card expiry year');
-			dd('LaravelKuveytturk invalid card expiry year');
+			throw new Exception('LaravelKuveytturk invalid card expiry year');
+			//dd('LaravelKuveytturk invalid card expiry year');
 		}
 
 		if($cardExpireDateYear < 1000) {
@@ -544,8 +545,8 @@ class KuveytturkBase {
 		}
 
 		if($cardExpireDateYear < date('Y')) {
-			// throw new Exception('LaravelKuveytturk card expired');
-			dd('LaravelKuveytturk card expired');
+			throw new Exception('LaravelKuveytturk card expired');
+			//dd('LaravelKuveytturk card expired');
 		}
 
 		$this->cardExpireDateYear = $cardExpireDateYear;
@@ -561,8 +562,8 @@ class KuveytturkBase {
 			if($this->isDebug() === true) {
 				$data = '30';
 			} else {
-				// throw new Exception('LaravelKuveytturk getCardExpireDateYear doesn\'t set');
-				dd('LaravelKuveytturk getCardExpireDateYear doesn\'t set');
+				throw new Exception('LaravelKuveytturk getCardExpireDateYear doesn\'t set');
+				//dd('LaravelKuveytturk getCardExpireDateYear doesn\'t set');
 			}
 
 			$this->setCardExpireDateYear($data);
@@ -588,8 +589,8 @@ class KuveytturkBase {
 	public function setCardExpireDateMonth($cardExpireDateMonth) {
 		$cardExpireDateMonth = intval($cardExpireDateMonth);
 		if($cardExpireDateMonth < 1 || $cardExpireDateMonth > 12) {
-			// throw new Exception('LaravelKuveytturk invalid card expiry month');
-			dd('LaravelKuveytturk invalid card expiry month');
+			throw new Exception('LaravelKuveytturk invalid card expiry month');
+			//dd('LaravelKuveytturk invalid card expiry month');
 		}
 
 		$this->cardExpireDateMonth = $cardExpireDateMonth;
@@ -605,8 +606,8 @@ class KuveytturkBase {
 			if($this->isDebug() === true) {
 				$data = '01';
 			} else {
-				// throw new Exception('LaravelKuveytturk cardExpireDateMonth doesn\'t set');
-				dd('LaravelKuveytturk cardExpireDateMonth doesn\'t set');
+				throw new Exception('LaravelKuveytturk cardExpireDateMonth doesn\'t set');
+				//dd('LaravelKuveytturk cardExpireDateMonth doesn\'t set');
 			}
 
 			$this->setCardExpireDateMonth($data);
@@ -633,8 +634,8 @@ class KuveytturkBase {
 		$cardCvv2 = trim($cardCvv2 . '');
 
 		if(mb_strlen($cardCvv2) < 3 || mb_strlen($cardCvv2) > 4) {
-			// throw new Exception('LaravelKuveytturk invalid cardCvv2');
-			dd('LaravelKuveytturk invalid cardCvv2');
+			throw new Exception('LaravelKuveytturk invalid cardCvv2');
+			//dd('LaravelKuveytturk invalid cardCvv2');
 		}
 
 		$this->cardCvv2 = $cardCvv2;
@@ -650,8 +651,8 @@ class KuveytturkBase {
 			if($this->isDebug() === true) {
 				$data = '861';
 			} else {
-				// throw new Exception('LaravelKuveytturk cardCvv2 doesn\'t set');
-				dd('LaravelKuveytturk cardCvv2 doesn\'t set');
+				throw new Exception('LaravelKuveytturk cardCvv2 doesn\'t set');
+				//dd('LaravelKuveytturk cardCvv2 doesn\'t set');
 			}
 
 			$this->setCardCvv2($data);
@@ -668,8 +669,8 @@ class KuveytturkBase {
 	public function setCardHolderName($cardHolderName) {
 		$cardHolderName = trim($cardHolderName);
 		if(mb_strlen($cardHolderName) < 1 || mb_strlen($cardHolderName) > 50) {
-			// throw new Exception('LaravelKuveytturk invalid length cardHolderName');
-			dd('LaravelKuveytturk invalid length cardHolderName');
+			throw new Exception('LaravelKuveytturk invalid length cardHolderName');
+			//dd('LaravelKuveytturk invalid length cardHolderName');
 		}
 
 		$this->cardHolderName = $cardHolderName;
@@ -686,7 +687,8 @@ class KuveytturkBase {
 		}
 
 		if(is_null($this->cardHolderName)) {
-			dd('LaravelKuveytturk cardHolderName cannot be empty');
+			throw new Exception('LaravelKuveytturk cardHolderName cannot be empty');
+			//dd('LaravelKuveytturk cardHolderName cannot be empty');
 		}
 
 		return $this->cardHolderName;
@@ -704,8 +706,8 @@ class KuveytturkBase {
 			case 'TROY':
 				break;
 			default:
-				// throw new Exception('LaravelKuveytturk invalid card type');
-				dd('LaravelKuveytturk invalid card type');
+				throw new Exception('LaravelKuveytturk invalid card type');
+				//dd('LaravelKuveytturk invalid card type');
 				break;
 		}
 
@@ -812,8 +814,8 @@ class KuveytturkBase {
 	public function setAmount($amount) {
 		$data = floatval($amount) * 100;
 		if($data < 0) {
-			// throw new Exception('LaravelKuveytturk amount cannot be less than zero');
-			dd('LaravelKuveytturk amount cannot be less than zero');
+			throw new Exception('LaravelKuveytturk amount cannot be less than zero');
+			//dd('LaravelKuveytturk amount cannot be less than zero');
 		}
 		$data = intval($data);
 
@@ -855,8 +857,8 @@ class KuveytturkBase {
 	public function setDisplayAmount($displayAmount) {
 		$data = floatval($displayAmount) * 100;
 		if($data < 0) {
-			// throw new Exception('LaravelKuveytturk displayAmount cannot be less than zero');
-			dd('LaravelKuveytturk displayAmount cannot be less than zero');
+			throw new Exception('LaravelKuveytturk displayAmount cannot be less than zero');
+			//dd('LaravelKuveytturk displayAmount cannot be less than zero');
 		}
 		$data = intval($data);
 
@@ -929,8 +931,8 @@ class KuveytturkBase {
 	public function setMerchantOrderId($merchantOrderId) {
 		$merchantOrderId = trim($merchantOrderId . '');
 		if(mb_strlen($merchantOrderId) > 50) {
-			// throw new Exception('LaravelKuveytturk invalid merchantOrderId');
-			dd('LaravelKuveytturk invalid merchantOrderId');
+			throw new Exception('LaravelKuveytturk invalid merchantOrderId');
+			//dd('LaravelKuveytturk invalid merchantOrderId');
 		}
 
 		$this->merchantOrderId = $merchantOrderId;
@@ -947,7 +949,8 @@ class KuveytturkBase {
 		}
 
 		if(is_null($this->merchantOrderId)) {
-			dd('LaravelKuveytturk merchantOrderId cannot be null');
+			throw new Exception('LaravelKuveytturk merchantOrderId cannot be null');
+			//dd('LaravelKuveytturk merchantOrderId cannot be null');
 		}
 
 		return $this->merchantOrderId;
